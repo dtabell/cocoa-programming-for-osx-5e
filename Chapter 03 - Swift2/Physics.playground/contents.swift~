@@ -121,7 +121,7 @@ class Simulation {
 let simulation = Simulation()
 
 //let ball = Particle()
-//ball.velocity = Vector(x: 0, y: 100)
+//ball.acceleration = Vector(x: 0, y: 100)
 //simulation.addParticle(ball)
 
 let rocket = Rocket(thrust: 10.0, thrustTime: 60.0)
