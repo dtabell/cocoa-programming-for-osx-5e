@@ -54,8 +54,11 @@ class Particle {
     }
 
     func tick(dt: NSTimeInterval) {
+        // second-order accurate integration
+        let hdt = 0.5 * dt
+        position = position + velocity * hdt
         velocity = velocity + acceleration * dt
-        position = position + velocity * dt
+        position = position + velocity * hdt
         position.y = max(0, position.y)
     }
 }
