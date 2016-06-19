@@ -82,7 +82,7 @@ class Rocket: Particle {
         if thrustTimeRemaining > 0.0 {
             let thrustTime = min(dt, thrustTimeRemaining)
             let thrustFrac = thrust * (thrustTime / dt)
-            acceleration = thrustFrac * direction
+            acceleration = acceleration + thrustFrac * direction
             thrustTimeRemaining -= thrustTime
         }
         super.tick(dt)
@@ -103,9 +103,8 @@ class Simulation {
     
     func tick(dt: NSTimeInterval) {
         for particle in particles {
-            particle.acceleration = particle.acceleration + gravity
+            particle.acceleration = gravity
             particle.tick(dt)
-            particle.acceleration = Vector()
             particle.position.y
         }
         time += dt
