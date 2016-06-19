@@ -78,9 +78,8 @@ class Rocket: Particle {
     override func tick(dt: NSTimeInterval) {
         if thrustTimeRemaining > 0.0 {
             let thrustTime = min(dt, thrustTimeRemaining)
-            let thrustToApply = thrust * thrustTime
-            let thrustForce = direction * thrustToApply
-            acceleration = acceleration + thrustForce
+            let thrustFrac = thrust * (thrustTime / dt)
+            acceleration = thrustFrac * direction
             thrustTimeRemaining -= thrustTime
         }
         super.tick(dt)
