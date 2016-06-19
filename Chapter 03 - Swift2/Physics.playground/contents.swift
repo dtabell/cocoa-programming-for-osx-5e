@@ -18,7 +18,7 @@ struct Vector: CustomStringConvertible {
     }
 
     var magnitude: Double {
-        return sqrt(x*x + y*y)
+        return hypot(x, y)
     }
     
     var description: String {
